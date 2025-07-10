@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "rsuite/dist/rsuite.css";
+
+.sub-menu {
+    overflow: hidden;
+    transition: height 300ms;
+  }
