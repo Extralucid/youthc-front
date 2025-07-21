@@ -1,10 +1,11 @@
-import { Home, LayoutDashboard, StickyNote, Calendar, UserCog, Users, Book, Layers, Flag, Settings, LifeBuoy, CogIcon, HomeIcon, UserIcon, Album } from "lucide-react";
+import { Home, LayoutDashboard, StickyNote, Calendar, UserCog, Users, Book, Layers, Flag, Settings, LifeBuoy, CogIcon, HomeIcon, UserIcon, Album, Newspaper, File, TagsIcon } from "lucide-react";
 import { ReactNode, ReactElement, useState, useEffect } from "react";
 import { Navigate, Outlet, useNavigate } from "react-router-dom";
 import Sidebar from "../sidebar";
 import SidebarItem from "../sidebarItem";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
 import { getUser, logout } from "../../slices/auth.slice";
+import Breadcrumb from "../breadcrumb";
 
 interface LayoutProps {
   children: ReactNode;
@@ -24,7 +25,9 @@ export default function MainLayout(): ReactElement {
   const accessToken = useAppSelector((state) => state.auth);
   const userProfileInfo = useAppSelector((state) => state.auth.userProfileData);
 
-  
+  const [menuSelector, setMenuSelector] = useState(null);
+  const [subMenuSelector, setSubMenuSelector] = useState(null);
+
 
   useEffect(() => {
     // if (accessToken) {
@@ -41,6 +44,7 @@ export default function MainLayout(): ReactElement {
     }
   };
 
+
   const navBarItems = [
     {
       icon: <LayoutDashboard />,
@@ -48,58 +52,65 @@ export default function MainLayout(): ReactElement {
       route: '/',
       active: true,
     },
-    
-    {
-      icon: <UserCog />,
-      route: '/partenaire',
-      text: 'Partenaires',
-    },
+
     {
       icon: <Users />,
-      route: '/moderateur',
-      text: 'Moderateurs',
+      route: '/settings/user',
+      text: 'Utilisateurs',
+    },
+    {
+      icon: <Newspaper />,
+      route: '/blog',
+      text: 'Blog',
     },
     {
       icon: <StickyNote />,
+      route: '',
+      text: 'Offres',
       subMenu: [
         {
-          icon: <UserIcon />,
-          route: '/offre/stage',
-          text: 'Offres de stage',
+          icon: <Book />,
+          route: '/offre/liste',
+          text: 'Liste',
         },
         {
-          icon: <CogIcon />,
-          route: '/offre/emploi',
-          text: 'Offres d\'emplois',
-        },
-        {
-          icon: <CogIcon />,
-          route: '/offre/appel',
-          text: 'Appels d\'offre',
+          icon: <File />,
+          route: '/offre/application',
+          text: 'Candidatures',
         }
-      ],
-      route: '',
-      text: 'Les Offres',
+      ]
     },
     {
-      icon: <Book />,
+      icon: <TagsIcon />,
       route: '',
-      text: 'Opportunités',
+      text: 'Ressources',
       subMenu: [
         {
-          icon: <UserIcon />,
-          route: '/opportunite/bourse',
-          text: 'Bourses',
+          icon: <Book />,
+          route: '/ressource/tutorial',
+          text: 'Tutoriels',
+        },
+        {
+          icon: <StickyNote />,
+          route: '/ressource/book',
+          text: 'Livres',
+        }
+      ]
+    },
+    {
+      icon: <Newspaper />,
+      route: '',
+      text: 'Forum',
+      subMenu: [
+        {
+          icon: <CogIcon />,
+          route: '/forum/liste',
+          text: 'Liste',
         },
         {
           icon: <CogIcon />,
-          route: '/opportunite/formation',
-          text: 'Formations',
-        },
-        {
-          icon: <CogIcon />,
-          route: '/opportunite/marche',
-          text: 'Marketplace',
+          route: '/forum/topic',
+          text: 'Sujets',
         }
       ]
     },
@@ -110,17 +121,12 @@ export default function MainLayout(): ReactElement {
       subMenu: [
         {
           icon: <CogIcon />,
-          route: '/emission/radio',
-          text: 'Emissions Radios',
+          route: '/emission/podcast',
+          text: 'Podcast',
         },
         {
           icon: <CogIcon />,
-          route: '/emission/tele',
-          text: 'Emissions Tele',
-        },
-        {
-          icon: <CogIcon />,
-          route: '/emission/discussion',
+          route: '/emission/chat',
           text: 'Discussions',
         }
       ]
@@ -142,15 +148,26 @@ export default function MainLayout(): ReactElement {
     },
 
   ];
+
+    const selectedMenus = navBarItems.filter((menu) => {
+    if (menuSelector && menu.route !== menuSelector) return false;
+
+    if (subMenuSelector && menu.route !== subMenuSelector) return false;
+
+    return true;
+  });
+
+
   return (
     <>
       <div className="flex main">
-        <Sidebar expanded={expanded} setExpanded={setExpanded}  handleLogout={handleLogout}>
+        <Sidebar expanded={expanded} setExpanded={setExpanded} handleLogout={handleLogout}>
           {navBarItems.map((item, index) => (
             <SidebarItem key={index} expanded={expanded} {...item} />
           ))}
         </Sidebar>
         <main className="flex-1 w-64">
+          <Breadcrumb />
           <Outlet />
         </main>
       </div>

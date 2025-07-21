@@ -28,143 +28,53 @@ const Parametre: React.FC = () => {
                 Liste des Paramètres
             </div>
             <div className="grid grid-cols-1 gap-4 px-4 mt-8 sm:grid-cols-4 sm:px-8">
-                <a href="settings/activite" className="params">
+                <a href="settings/skill" className="params">
                     <div className="flex items-center bg-white border rounded-sm overflow-hidden shadow">
                         <div className="p-4 bg-blue-400"><Settings className="h-12 w-12 text-white" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor" /></div>
                         <div className="px-4 text-gray-700">
-                            <h3 className="text-sm tracking-wider">Activités</h3>
+                            <h3 className="text-sm tracking-wider">Skills</h3>
                             <p className="text-3xl">12,768</p>
                         </div>
                     </div>
                 </a>
-                <a href="settings/agence" className="params">
+                <a href="settings/job-categories" className="params">
                     <div className="flex items-center bg-white border rounded-sm overflow-hidden shadow">
                         <div className="p-4 bg-blue-400"><Settings className="h-12 w-12 text-white" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor" /></div>
                         <div className="px-4 text-gray-700">
-                            <h3 className="text-sm tracking-wider">Agences</h3>
+                            <h3 className="text-sm tracking-wider">Job Categories</h3>
                             <p className="text-3xl">39,265</p>
                         </div>
                     </div>
                 </a>
-                <a href="settings/format" className="params">
+                <a href="settings/tutorial-cetgories" className="params">
                     <div className="flex items-center bg-white border rounded-sm overflow-hidden shadow">
                         <div className="p-4 bg-blue-400"><Settings className="h-12 w-12 text-white" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor" /></div>
                         <div className="px-4 text-gray-700">
-                            <h3 className="text-sm tracking-wider">Format</h3>
+                            <h3 className="text-sm tracking-wider">Tutorial Categories</h3>
                             <p className="text-3xl">142,334</p>
                         </div>
                     </div>
                 </a>
-                <a href="settings/energie" className="params">
+                <a href="settings/book-categories" className="params">
                     <div className="flex items-center bg-white border rounded-sm overflow-hidden shadow">
                         <div className="p-4 bg-blue-400"><Settings className="h-12 w-12 text-white" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor" /></div>
                         <div className="px-4 text-gray-700">
-                            <h3 className="text-sm tracking-wider">Energie</h3>
+                            <h3 className="text-sm tracking-wider">Book Categories</h3>
                             <p className="text-3xl">0023</p>
                         </div>
                     </div>
                 </a>
-                <a href="settings/couleur" className="params">
+                <a href="settings/post-categories" className="params">
                     <div className="flex items-center bg-white border rounded-sm overflow-hidden shadow">
                         <div className="p-4 bg-blue-400"><Settings className="h-12 w-12 text-white" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor" /></div>
                         <div className="px-4 text-gray-700">
-                            <h3 className="text-sm tracking-wider">Couleurs</h3>
+                            <h3 className="text-sm tracking-wider">Blog Categories</h3>
                             <p className="text-3xl">12,768</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="settings/garantie" className="params">
-                    <div className="flex items-center bg-white border rounded-sm overflow-hidden shadow">
-                        <div className="p-4 bg-blue-400"><Settings className="h-12 w-12 text-white" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" /></div>
-                        <div className="px-4 text-gray-700">
-                            <h3 className="text-sm tracking-wider">Garantie</h3>
-                            <p className="text-3xl">39,265</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="settings/marque" className="params">
-                    <div className="flex items-center bg-white border rounded-sm overflow-hidden shadow">
-                        <div className="p-4 bg-blue-400"><Settings className="h-12 w-12 text-white" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" /></div>
-                        <div className="px-4 text-gray-700">
-                            <h3 className="text-sm tracking-wider">Marques</h3>
-                            <p className="text-3xl">142,334</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="settings/modele" className="params">
-                    <div className="flex items-center bg-white border rounded-sm overflow-hidden shadow">
-                        <div className="p-4 bg-blue-400"><Settings className="h-12 w-12 text-white" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" /></div>
-                        <div className="px-4 text-gray-700">
-                            <h3 className="text-sm tracking-wider">Modeles</h3>
-                            <p className="text-3xl">0023</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="settings/pack" className="params">
-                    <div className="flex items-center bg-white border rounded-sm overflow-hidden shadow">
-                        <div className="p-4 bg-blue-400"><Settings className="h-12 w-12 text-white" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" /></div>
-                        <div className="px-4 text-gray-700">
-                            <h3 className="text-sm tracking-wider">Localites</h3>
-                            <p className="text-3xl">12,768</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="settings/prime" className="params">
-                    <div className="flex items-center bg-white border rounded-sm overflow-hidden shadow">
-                        <div className="p-4 bg-blue-400"><Settings className="h-12 w-12 text-white" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" /></div>
-                        <div className="px-4 text-gray-700">
-                            <h3 className="text-sm tracking-wider">Prime</h3>
-                            <p className="text-3xl">39,265</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="settings/profession" className="params">
-                    <div className="flex items-center bg-white border rounded-sm overflow-hidden shadow">
-                        <div className="p-4 bg-blue-400"><Settings className="h-12 w-12 text-white" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" /></div>
-                        <div className="px-4 text-gray-700">
-                            <h3 className="text-sm tracking-wider">Professions</h3>
-                            <p className="text-3xl">142,334</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="settings/qualite" className="params">
-                    <div className="flex items-center bg-white border rounded-sm overflow-hidden shadow">
-                        <div className="p-4 bg-blue-400"><Settings className="h-12 w-12 text-white" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" /></div>
-                        <div className="px-4 text-gray-700">
-                            <h3 className="text-sm tracking-wider">Qualites</h3>
-                            <p className="text-3xl">0023</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="settings/statut" className="params">
-                    <div className="flex items-center bg-white border rounded-sm overflow-hidden shadow">
-                        <div className="p-4 bg-blue-400"><Settings className="h-12 w-12 text-white" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" /></div>
-                        <div className="px-4 text-gray-700">
-                            <h3 className="text-sm tracking-wider">Statuts</h3>
-                            <p className="text-3xl">12,768</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="settings/tage" className="params">
-                    <div className="flex items-center bg-white border rounded-sm overflow-hidden shadow">
-                        <div className="p-4 bg-blue-400"><Settings className="h-12 w-12 text-white" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" /></div>
-                        <div className="px-4 text-gray-700">
-                            <h3 className="text-sm tracking-wider">Categories</h3>
-                            <p className="text-3xl">39,265</p>
                         </div>
                     </div>
                 </a>
@@ -175,26 +85,6 @@ const Parametre: React.FC = () => {
                         <div className="px-4 text-gray-700">
                             <h3 className="text-sm tracking-wider">Types document</h3>
                             <p className="text-3xl">142,334</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="settings/produit" className="params">
-                    <div className="flex items-center bg-white border rounded-sm overflow-hidden shadow">
-                        <div className="p-4 bg-blue-400"><Settings className="h-12 w-12 text-white" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" /></div>
-                        <div className="px-4 text-gray-700">
-                            <h3 className="text-sm tracking-wider">Produits</h3>
-                            <p className="text-3xl">0023</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="settings/profession" className="params">
-                    <div className="flex items-center bg-white border rounded-sm overflow-hidden shadow">
-                        <div className="p-4 bg-blue-400"><Settings className="h-12 w-12 text-white" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" /></div>
-                        <div className="px-4 text-gray-700">
-                            <h3 className="text-sm tracking-wider">Professions</h3>
-                            <p className="text-3xl">12,768</p>
                         </div>
                     </div>
                 </a>
@@ -218,13 +108,13 @@ const Parametre: React.FC = () => {
                         </div>
                     </div>
                 </a>
-                <a href="settings/ressource" className="params">
+                 <a href="settings/tag" className="params">
                     <div className="flex items-center bg-white border rounded-sm overflow-hidden shadow">
-                        <div className="p-4 bg-blue-400"><Settings className="h-12 w-12 text-white" fill="none"
+                        <div className="p-4 bg-blue-400"><UserCog className="h-12 w-12 text-white" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor" /></div>
                         <div className="px-4 text-gray-700">
-                            <h3 className="text-sm tracking-wider">Roles</h3>
-                            <p className="text-3xl">0023</p>
+                            <h3 className="text-sm tracking-wider">Tags</h3>
+                            <p className="text-3xl">142,334</p>
                         </div>
                     </div>
                 </a>
