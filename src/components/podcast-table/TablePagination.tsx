@@ -8,7 +8,6 @@ import {
     ChevronRight,
     ChevronsRight,
     PlusCircle,
-    CogIcon,
     ArrowRightLeft,
     PlusIcon,
     Ban,
@@ -23,7 +22,6 @@ import {
     useTable,
 } from "react-table";
 import { Button, ButtonToolbar, Divider, Drawer, Form, IconButton, Input, InputPicker } from "rsuite";
-import { capitalize } from "./utils";
 import './table.css'
 
 interface TablePaginationProps {
