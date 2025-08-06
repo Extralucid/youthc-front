@@ -1,0 +1,58 @@
+.card-skeleton {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  height: 96px; /* Match your card height */
+}
+
+.skeleton-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: #f3f4f6;
+}
+
+.skeleton-content {
+  flex-grow: 1;
+}
+
+.skeleton-title {
+  width: 80px;
+  height: 16px;
+  background: #f3f4f6;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.skeleton-value {
+  width: 120px;
+  height: 24px;
+  background: #e5e7eb;
+  border-radius: 4px;
+}
+
+.skeleton-arrow {
+  width: 20px;
+  height: 20px;
+  background: #f3f4f6;
+  border-radius: 50%;
+}
+
+/* Dark mode */
+.dark .card-skeleton {
+  background: #1e293b;
+}
+
+.dark .skeleton-icon,
+.dark .skeleton-title,
+.dark .skeleton-value,
+.dark .skeleton-arrow {
+  background: #334155;
+}
+
+.dark .skeleton-value {
+  background: #475569;
+}

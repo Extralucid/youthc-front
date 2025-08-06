@@ -1,0 +1,84 @@
+.dashboard-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--card-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--card-color);
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.card-icon {
+  background: var(--card-color);
+  color: white;
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.card-content {
+  flex-grow: 1;
+  z-index: 1;
+}
+
+.card-content h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.card-content p {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.card-arrow {
+  color: #94a3b8;
+  transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover .card-arrow {
+  transform: translateX(3px);
+  color: var(--card-color);
+}
+
+/* Dark Mode Support */
+.dark .dashboard-card {
+  background: #1e293b;
+}
+
+.dark .card-content h3 {
+  color: #cbd5e1;
+}
+
+.dark .card-content p {
+  color: white;
+}
+
+.dark .card-arrow {
+  color: #94a3b8;
+}

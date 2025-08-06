@@ -1,0 +1,158 @@
+/* ===== GLOBAL FILTER BAR ===== */
+.globalFilter {
+    padding: 0 12px 12px;
+    font-size: 14px;
+}
+
+.header {
+    font-size: 1.25rem;
+    color: #31708f;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+}
+
+.searchBox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.inputSearch {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 14px;
+    width: 180px;
+    max-width: 100%;
+}
+
+.btnPrimary {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.btnPrimary:hover { background: #0056b3; }
+
+/* ===== TABLE ===== */
+.tableWrapper {
+    position: relative;
+    overflow-x: auto;
+    padding: 0 12px;
+}
+
+.dataTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: #fff;
+}
+
+.dataTable th,
+.dataTable td {
+    border: 1px solid #e5e5e5;
+    padding: 6px 8px;
+}
+
+.dataTable th {
+    background: #f5f5f5;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.dataTable tbody tr:nth-child(even) {
+    background: #fafafa;
+}
+
+.dataTable tbody tr:hover {
+    background: #eaf4ff;
+}
+
+.noData {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+}
+
+/* ===== LOADING OVERLAY ===== */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.loader {
+    background: #fff;
+    padding: 12px 18px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+}
+
+/* ===== PAGINATION ===== */
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    font-size: 14px;
+    gap: 12px;
+}
+
+.pageInfo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+}
+
+.pageInfo input,
+.pageInfo select {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px 6px;
+    font-size: 14px;
+}
+
+.buttons {
+    display: flex;
+    gap: 4px;
+}
+
+.buttons button {
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.buttons button:disabled {
+    color: #aaa;
+    cursor: not-allowed;
+}
