@@ -9,6 +9,9 @@ import {
   FiUsers,
   FiSettings,
   FiLayers,
+  FiDollarSign,
+  FiDownloadCloud,
+  FiArrowUp,
 } from "react-icons/fi";
 import { RiProductHuntFill } from "react-icons/ri";
 import { CgLock, CgProfile } from "react-icons/cg";
@@ -141,6 +144,47 @@ const ROUTES = [
         noLayout: true,
         title: "Securité",
         icon: <CgLock size={14} />,
+      },
+      { index: true, element: <Navigate to="users" replace /> }
+    ],
+  },
+  {
+    path: "/settings",
+    element: <Settings />,
+    title: "Analyse financière",
+    icon: <FiDollarSign size={14} />,
+    noLayout: false,
+    children: [
+      {
+        path: "profile",
+        element: <Profile />,
+        noLayout: true,
+        title: "Courriers",
+        icon: <FiDownloadCloud size={14} />,
+      },
+      { index: true, element: <Navigate to="users" replace /> }
+    ],
+  },
+  {
+    path: "/settings",
+    element: <Settings />,
+    title: "Courriers",
+    icon: <FiLayers size={14} />,
+    noLayout: false,
+    children: [
+      {
+        path: "declaration",
+        element: <Profile />,
+        noLayout: true,
+        title: "Declaration",
+        icon: <FiDownloadCloud size={14} />,
+      },
+      {
+        path: "transmission",
+        element: <Profile />,
+        noLayout: true,
+        title: "Transmissions",
+        icon: <FiArrowUp size={14} />,
       },
       { index: true, element: <Navigate to="users" replace /> }
     ],
