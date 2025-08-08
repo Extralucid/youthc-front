@@ -3,37 +3,65 @@ import React, { useState, useCallback, useMemo } from "react";
 import SinistrePagination from "./sinistrePagination";
 import Swal from "sweetalert2";
 import axios from "axios";
+import generateMockData from '../../../mock';
+import { FaEdit, FaEye, FaTrash } from 'react-icons/fa';
 
 
 const SinistreDatatable = (props) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [pageCount, setPageCount] = useState(0);
+    const [pageCount, setPageCount] = useState(1);
     const [totalRow, setTotalRow] = useState(0);
 
-    const fetchData = useCallback(async (pageSize, pageIndex, search, order) => {
-        setLoading(true);
-        const queryOptions = {
-            page: pageIndex,
-            limit: pageSize,
-            search: search,
-            order: order,
-        };
-        try {
-            const items = [];//await getRoleDatatable(queryOptions);
-            console.log(items); // Vérifiez la structure
-            const sortedData = (items.data || []).sort(
-                (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-            ); // Trier par date de création décroissante
-            setData(sortedData);
-            setPageCount(items.pagination?.totalPage || 0);
-            setTotalRow(items.pagination?.totalRow || 0);
-        } catch (error) {
-            console.error("Erreur lors de la récupération des données:", error);
-        } finally {
-            setLoading(false);
-        }
-    }, []);
+    const donnees = useMemo(() => [...generateMockData(2000)], []);
+
+
+    // const fetchData = useCallback(async (pageSize, pageIndex, search, order) => {
+    //     setLoading(true);
+    //     const queryOptions = {
+    //         page: pageIndex,
+    //         limit: pageSize,
+    //         search: search,
+    //         order: order,
+    //     };
+    //     try {
+    //         const items = donnees;//await getRoleDatatable(queryOptions);
+    //         console.log(items); // Vérifiez la structure
+    //         const sortedData = (items.data || []).sort(
+    //             (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    //         ); // Trier par date de création décroissante
+    //         setData(sortedData);
+    //         setPageCount(items.pagination?.totalPage || 0);
+    //         setTotalRow(items.pagination?.totalRow || 0);
+    //     } catch (error) {
+    //         console.error("Erreur lors de la récupération des données:", error);
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // }, []);
+
+const fetchData = useCallback(async (pageSize, pageIndex, search, order) => {
+    setLoading(true);
+    try {
+        // Simulation de pagination côté client pour les mock data
+        const startIndex = pageIndex * pageSize;
+        const endIndex = startIndex + pageSize;
+        const paginatedData = donnees.slice(startIndex, endIndex);
+        
+        // Simulation de tri
+        const sortedData = [...paginatedData].sort(
+            (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
+        
+        setData(sortedData);
+        setPageCount(Math.ceil(donnees.length / pageSize));
+        setTotalRow(donnees.length);
+    } catch (error) {
+        console.error("Erreur:", error);
+    } finally {
+        setLoading(false);
+    }
+}, [donnees]); // Ajoutez donnees comme dépendance
 
     const handleDelete = useCallback(async (id) => {
         Swal.fire({
@@ -114,7 +142,7 @@ const SinistreDatatable = (props) => {
                 Header: "Actions",
                 Cell: ({ row }) => {
                     return (
-                        <div className="flex gap-2">
+                        <div className="">
                             {/* Boutons Détails, Édition, Supprimer */}
                             <a
                                 href={`/erp/saz/sni/detail/${row.original.id}`}
@@ -123,7 +151,7 @@ const SinistreDatatable = (props) => {
                                 data-placement="bottom"
                                 title="Details"
                             >
-                                <i className="ace-icon fa fa-eye bigger-130"></i>
+                                <FaEye className='text-blue' />
                             </a>
                             &nbsp;
                             <a
@@ -133,18 +161,22 @@ const SinistreDatatable = (props) => {
                                 data-placement="bottom"
                                 title="Edition"
                             >
-                                <i className="ace-icon fa fa-edit bigger-130"></i>
+                                <FaEdit className='bg-danger text-white' />
                             </a>
                             &nbsp;
-                            <button
+                            <a
+                                href="#"
                                 className="btn btn-danger btn-minier tooltip-error"
                                 data-rel="tooltip"
                                 data-placement="bottom"
                                 title="Supprimer"
-                                onClick={() => handleDelete(row.original.id)}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    handleDelete(row.original.id);
+                                }}
                             >
-                                <i className="fa fa-trash"></i>
-                            </button>
+                                <FaTrash className="text-red" />
+                            </a>
                         </div>
                     );
                 },

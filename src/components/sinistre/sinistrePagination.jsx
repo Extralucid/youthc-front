@@ -60,7 +60,7 @@ export default function TablePagination(props) {
             manualPagination: true,
             manualGlobalFilter: true,
             manualSortBy: true,
-            initialState: { pageIndex: 0, pageSize: 10 },
+            initialState: { pageIndex: 0, pageSize: 8 },
             pageCount: controlledPageCount,
             autoResetSortBy: false,
             autoResetExpanded: false,
@@ -70,8 +70,6 @@ export default function TablePagination(props) {
         useSortBy,
         usePagination
     );
-
-    const [openWithHeader, setOpenWithHeader] = useState(false);
 
     /* ---------- Global filter ---------- */
     const GlobalFilter = ({
